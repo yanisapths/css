@@ -22,6 +22,8 @@ h1,h2,h3{
     font-family: 'Lora',serif;
     font-weight: 400;
     color: #143774;
+    /* to make smaller space in betwween articles */
+    margin-top: 0;
 }
 h1{
     font-size: 2rem;
@@ -71,13 +73,17 @@ a:focus
     text-decoration: underline;
 }
 
+.article-info {
+    margin: 2em 0;
+}
+
 /********************************
 Layout
 *********************************/
 .container{
- width: 90%;
- max-width: 900px; 
- margin: 0 auto;  
+    width: 90%;
+    max-width: 900px; 
+    margin: 0 auto;  
 }
 .container-flex{
     display: flex;
@@ -89,13 +95,17 @@ header{
     padding: 2em 0;
     text-align: center;
 }
-
-/* main {
-    width: 75%;
+@media (min-width: 675px) {
+    .container-flex {
+        flex-direction: row;
+    }
+    main {
+        width: 75%;
+    }
+    aside {
+        width: 20%;
+    } 
 }
-aside {
-    width: 20%;
-} */
 
 /********************************
 Navigation
@@ -105,7 +115,7 @@ Navigation
     list-style: none;
     display:flex;
     justify-content:center;
-    margin-left: 2em;
+    /* margin-left: 2em; */
 }
 
 .nav-list-item{
@@ -137,5 +147,50 @@ Navigation
     }
     .nav-list-item{
         margin:.5em 0;
+    }
+}
+
+/* article */
+
+.article-featured {
+    padding-bottom:1em;
+    margin-bottom: 2em;
+    border-bottom: 1px solid #707070;
+    /* always padding first before margin */
+}
+
+.article-recent {
+    display:flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+}
+
+.article-recent-main {
+    order:2; 
+    /* switch position between img and body */ 
+}
+
+.article-recent-secondary {
+    order:1;
+    /* switch position between img and body */
+}
+
+@media (min-width: 675px) {
+    .article-recent {
+        flex-direction: row;
+        justify-content: space-between;
+    }    
+    .article-recent-main {
+        width: 68%;
+    }
+
+    .article-recent-secondary {
+        width: 30%;
+    }
+
+    .article-image {
+        width: 100%;
+        min-height: 250px;
+        object-fit: cover;
     }
 }
