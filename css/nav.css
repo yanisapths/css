@@ -11,19 +11,6 @@ body{
 /********************************
 Typography
 *********************************/
-.container{
- width: 90%;
- max-width: 900px; 
- margin: 0 auto;  
-}
-.container-nav{
-    display:flex;
-    justify-content:space-between;
-}
-header{
-    background:#f8f8f8;
-    padding: 2em 0;
-}
 h1{
     font-family: 'Lora',serif;
     font-weight: 400;
@@ -35,7 +22,34 @@ h1{
     font-weight: 700;
     color: #1792d2;
     font-size: .75rem;
+    margin:0;
 }
+/********************************
+Layout
+*********************************/
+.container{
+ width: 90%;
+ max-width: 900px; 
+ margin: 0 auto;  
+}
+.container-nav{
+    display: flex;
+    justify-content: space-between;
+}
+header{
+    background:#f8f8f8;
+    padding: 2em 0;
+}
+
+@media (max-width: 675px){
+    .container-nav{
+        flex-direction: column;
+    }
+    header{
+       text-align: center;
+    }
+}
+
 /********************************
 Navigation
 *********************************/
@@ -68,4 +82,13 @@ Navigation
 
 .current-page:hover{
     border-bottom:#1792d2;
+}
+
+@media (max-width: 675px) {
+    .nav-list{
+        flex-direction: column;
+    }
+    .nav-list-item{
+        margin:.5em 0;
+    }
 }
